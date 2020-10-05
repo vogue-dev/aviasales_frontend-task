@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Чтобы запустить приложение локально, скачайте или склонируйте репозиторий, перейдите в созданный каталог, выполните в консоли npm install и затем npm run dev.
 
-## Available Scripts
+node -v 8.12.0
+npm -v 6.4.1
+Сделать приложение на React.
+Чтобы развернуть приложение можно использовать create-react-app.
 
-In the project directory, you can run:
+Приложение должно состоять из 2х страниц:
 
-### `npm start`
+Главная страница - на ней можно написать что угодно, hello world или ничего.
+Страница пользователи (функционал см. ниже).
+Переход между страницами должен быть динамический и реализован с помощью react-router.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ссылки на страницы должны присутствовать в TOP каждой страницы.
+Ссылка открытой (активной) страницы должна выделяться (цвет, фон, как душе угодно)
+Страница пользователей.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Должна присутствовать форма добавления пользователя: "имя", "email", кнопка "добавить".
+При нажатии на "добавить" пользователь должен добавляться в store.
+store должен быть реализован с помощью redux (обязательно).
+Добавленные пользователи должны отображаться ниже формы списком.
+Напротив каждого пользователя должна быть кнопка "удалить"
+При нажатии на "удалить" пользователь должен удаляться из хранилища.
+Подсказки.
 
-### `npm test`
+При добавлении пользователя понадобится генерить его идентификатор.
+По готовности залить приложение в репозиторий на github
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Дополнительно.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Store должен быть организован с помощью immutable.js
+Сделать валидацию на email и имя пользователя (должно присутствовать и быть не больше 10 символов)
