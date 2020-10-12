@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Ticket from '../components/Ticket';
-import Checkbox from '../components/Checkbox';
+import Filter from '../components/Filter';
 import Logo from '../components/Logo';
 
 const MainPage = () => {
@@ -10,14 +10,14 @@ const MainPage = () => {
 			<Logo />
 			<div className="filter col-3">
 				<div className="counter">КОЛИЧЕСТВО ПЕРЕСАДОК</div>
-				<Checkbox />
+				<Filter />
 			</div>
 			<div className="main col-9">
-				<div className="tabs row">
-					<div className="cheapiest">
+				<div className="sort">
+					<div className="tab active">
 						<div className="inner">САМЫЙ ДЕШЕВЫЙ</div>
 					</div>
-					<div className="fastest">
+					<div className="tab">
 						<div className="inner">САМЫЙ БЫСТРЫЙ</div>
 					</div>
 				</div>

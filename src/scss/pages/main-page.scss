@@ -54,20 +54,37 @@
 	}
 }
 
-.cheapiest {
+.sort {
+	width: 100%;
+	display: inline-flex;
+	border-radius: 5px;
+
+	& :first-child {
+		border-radius: 5px 0 0 5px;
+	}
+
+	& :last-child {
+		border-radius: 0 5px 5px 0;
+	}
+}
+
+.tab {
 	width: 50%;
 	height: 50px;
 	left: calc(50% - 252px / 2 + 1px);
 	top: 160px;
-	border-radius: 5px 0 0 5px;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
-	/* Frequently Used/Primary 500 */
+	background: white;
+	color: black;
 
-	background: #2196f3;
+	&.active {
+		background: #2196f3;
+		color: white;
+	}
 
 	& .inner {
 		width: 138px;
@@ -85,47 +102,5 @@
 		text-align: center;
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
-
-		color: #ffffff;
-	}
-}
-
-.fastest {
-	width: 50%;
-	height: 50px;
-	left: calc(50% - 251px / 2 + 252.5px);
-	top: 160px;
-	border-radius: 0 5px 5px 0;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	/* Primary Colors/White */
-
-	background: #ffffff;
-	/* Secondary Colors/Border */
-
-	border: 1px solid #dfe5ec;
-	box-sizing: border-box;
-
-	& .inner {
-		width: 138px;
-		height: 19px;
-		left: calc(50% - 138px / 2 + 253px);
-		top: 175px;
-
-		font-family: Open Sans;
-		font-style: normal;
-		font-weight: 600;
-		font-size: 12px;
-		line-height: 20px;
-		/* identical to box height, or 167% */
-
-		text-align: center;
-		letter-spacing: 0.5px;
-		text-transform: uppercase;
-
-		color: #4a4a4a;
 	}
 }
