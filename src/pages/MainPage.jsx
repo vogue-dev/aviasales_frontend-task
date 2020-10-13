@@ -1,31 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-import Ticket from '../components/Ticket';
+import Tickets from '../components/Tickets';
 import Filter from '../components/Filter';
+import Sort from '../components/Sort';
 import Logo from '../components/Logo';
 
+import { gettingData } from '../redux/actions/tickets';
+
 const MainPage = () => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(gettingData());
+	}, [dispatch]);
+
 	return (
 		<div className="app__wrapper">
 			<Logo />
-			<div className="filter col-3">
-				<div className="counter">КОЛИЧЕСТВО ПЕРЕСАДОК</div>
-				<Filter />
-			</div>
+			<Filter />
 			<div className="main col-9">
-				<div className="sort">
-					<div className="tab active">
-						<div className="inner">САМЫЙ ДЕШЕВЫЙ</div>
-					</div>
-					<div className="tab">
-						<div className="inner">САМЫЙ БЫСТРЫЙ</div>
-					</div>
-				</div>
-				<Ticket />
-				<Ticket />
-				<Ticket />
-				<Ticket />
-				<Ticket />
+				<Sort />
+				<Tickets />
 			</div>
 		</div>
 	);

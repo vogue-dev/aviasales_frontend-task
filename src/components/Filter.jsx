@@ -2,7 +2,8 @@ import React from 'react';
 
 const Checkbox = () => {
 	return (
-		<>
+		<div className="filter col-3">
+			<div className="counter">КОЛИЧЕСТВО ПЕРЕСАДОК</div>
 			<div className="count row">
 				<ul>
 					<label htmlFor="checkbox">
@@ -42,7 +43,7 @@ const Checkbox = () => {
 					</label>
 				</ul>
 			</div>
-		</>
+		</div>
 	);
 };
 
