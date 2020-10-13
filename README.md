@@ -1,3 +1,5 @@
+<a href="https://vogue-dev.github.io/aviasales_frontend-task/">DEMO</a>
+
 # Тестовое задание Aviasales ([frontend](https://aviasales.recruitee.com/o/frontend-developer-js-coffeescript-react%C2%A0redux--aviasalesru))
 
 Основной frontend проект нашей команды — это страница выдачи билетов со множеством фильтров, настроек и, собственно, билетов.
