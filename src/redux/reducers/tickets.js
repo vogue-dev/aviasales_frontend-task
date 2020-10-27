@@ -4,6 +4,7 @@ const initialState = {
 };
 
 const tickets = (state = initialState, action) => {
+	console.log('action.payload', action.payload);
 	switch (action.type) {
 		case 'SET_TICKETS_DATA':
 			return {
@@ -11,6 +12,7 @@ const tickets = (state = initialState, action) => {
 				dataTickets: action.payload,
 				isLoaded: true,
 			};
+
 		case 'SET_LOADED':
 			return {
 				...state,

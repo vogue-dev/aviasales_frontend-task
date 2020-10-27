@@ -1,11 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
+import { gettingData } from '../../redux/actions/tickets';
 
 import Ticket from './Ticket';
 
 const Tickets = () => {
+	const dispatch = useDispatch();
 	const dataTickets = useSelector(({ tickets }) => tickets.dataTickets);
 	const isLoaded = useSelector(({ tickets }) => tickets.isLoaded);
+
+	useEffect(() => {
+		dispatch(gettingData());
+	}, [dispatch]);
 
 	return (
 		<>
