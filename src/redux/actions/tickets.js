@@ -10,22 +10,22 @@ export const gettingData = () => async (dispatch) => {
 			)
 			.then((data) => data.data.tickets.slice(0, 5));
 
-		// await dispatch(setTicketsData(result));
-		await dispatch(sortByPrice(result));
+		// dispatch(setTicketsData(result));
+		dispatch(sortByPrice(result));
 	};
 	fetchingData();
 };
 
-export const sortByPrice = (data) => (dispatch) => {
+export const sortByPrice = (data) => async (dispatch) => {
 	let sortedData = data.sort((ticket_1, ticket_2) => ticket_1.price - ticket_2.price);
-	dispatch(setTicketsData(sortedData));
+	await dispatch(setTicketsData(sortedData));
 };
 
-export const sortByTime = (data) => (dispatch) => {
+export const sortByTime = (data) => async (dispatch) => {
 	let sortedData = data.sort(
 		(ticket_1, ticket_2) => ticket_1.segments[0].duration - ticket_2.segments[0].duration
 	);
-	dispatch(setTicketsData(sortedData));
+	await dispatch(setTicketsData(sortedData));
 };
 
 export const setTicketsData = (items) => ({
