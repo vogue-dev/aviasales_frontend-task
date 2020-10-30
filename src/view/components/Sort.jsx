@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { sortByPrice, sortByTime } from '../../redux/actions/tickets';
+import { setSortBy } from '../../redux/actions/sort';
 
 const SortingTabs = styled.div`
 	 {
@@ -23,27 +23,18 @@ const SortingTabs = styled.div`
 
 const Sort = () => {
 	const dispatch = useDispatch();
-	const dataTickets = useSelector(({ tickets }) => tickets.dataTickets);
-	let data = dataTickets.slice();
+	const sortBy = useSelector(({ sort }) => sort.sortBy);
 
-	let [activeTab, setActiveTab] = useState(1);
-
-	const onChangeTab = (param) => {
-		setActiveTab(param);
-
-		if (param === 1 && activeTab !== param) {
-			dispatch(sortByPrice(data));
-		} else if (param === 2 && activeTab !== param) {
-			dispatch(sortByTime(data));
-		}
+	const onSelectSortType = (type) => {
+		dispatch(setSortBy(type));
 	};
 
 	return (
 		<SortingTabs>
-			<div className={activeTab === 1 ? 'tab active' : 'tab'} onClick={() => onChangeTab(1)}>
+			<div className={sortBy === 'price' ? 'tab active' : 'tab'} onClick={() => onSelectSortType('price')}>
 				<div className="inner">САМЫЙ ДЕШЕВЫЙ</div>
 			</div>
-			<div className={activeTab === 2 ? 'tab active' : 'tab'} onClick={() => onChangeTab(2)}>
+			<div className={sortBy === 'time' ? 'tab active' : 'tab'} onClick={() => onSelectSortType('time')}>
 				<div className="inner">САМЫЙ БЫСТРЫЙ</div>
 			</div>
 		</SortingTabs>

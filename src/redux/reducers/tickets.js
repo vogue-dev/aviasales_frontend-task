@@ -1,24 +1,28 @@
 const initialState = {
 	dataTickets: [],
-	// dataTicketsSorted: [],
+	filteredTickets: [],
 	isLoaded: false,
 };
 
 const tickets = (state = initialState, action) => {
-	console.log('action.payload', action);
+	// console.log('DATA_TICKETS.action.payload', action);
+
 	switch (action.type) {
 		case 'SET_TICKETS_DATA':
+			// const newTickets = action.payload.sort(
+			// 	(ticket_1, ticket_2) => ticket_1.price - ticket_2.price
+			// );
 			return {
 				...state,
 				dataTickets: action.payload,
 				isLoaded: true,
 			};
 
-		// case 'SET_SORTED_TICKETS_DATA':
-		// 	return {
-		// 		...state,
-		// 		dataTicketsSorted: action.payload,
-		// 	};
+		case 'SET_SORTED_TICKETS':
+			return {
+				...state,
+				filteredTickets: action.payload,
+			};
 
 		case 'SET_LOADED':
 			return {
