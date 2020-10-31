@@ -1,6 +1,6 @@
 const initialState = {
 	stopsFilter: [-1],
-}
+};
 
 const filter = (state = initialState, action) => {
 	// console.log('STOPS_FILTER.action.payload', action);
@@ -9,11 +9,11 @@ const filter = (state = initialState, action) => {
 			return {
 				...state,
 				stopsFilter: action.payload,
-			}
+			};
 
 		default:
-			return state
+			return state;
 	}
-}
+};
 
-export default filter
+export default filter;

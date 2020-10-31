@@ -1,5 +1,5 @@
 import React from 'react';
-import { availableStops } from '../../utils/constants';
+import { availableStops } from '../utils/constants';
 import StopsFilterCheckboxes from './StopsFilterCheckboxes';
 
 const FilterStops = () => {

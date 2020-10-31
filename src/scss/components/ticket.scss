@@ -32,14 +32,9 @@
 		}
 	}
 
-	& .row1 {
+	& .row {
 		height: 39px;
-		margin-bottom: 10px;
-		display: flex;
-	}
-
-	& .row2 {
-		height: 39px;
+		margin-bottom: 10px !important;
 		display: flex;
 	}
 

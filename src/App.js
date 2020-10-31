@@ -1,11 +1,21 @@
 import React from 'react';
 
-import MainPage from './view/pages/MainPage';
+import Tickets from './components/Tickets';
+import Filter from './components/Filter';
+import Sort from './components/Sort';
+import logo from './logo.svg';
 
 const App = () => {
 	return (
-		<div>
-			<MainPage />
+		<div className="app__wrapper">
+			<div className="logo">
+				<img src={logo} className="logo-img" alt="logo" />
+			</div>
+			<Filter />
+			<div className="main col-9">
+				<Sort />
+				<Tickets />
+			</div>
 		</div>
 	);
 };

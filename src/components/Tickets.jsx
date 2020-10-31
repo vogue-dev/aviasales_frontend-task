@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-import { gettingData } from '../../redux/actions/tickets';
-import { sortByPrice, sortByTime } from '../../redux/actions/sort';
+import { gettingData } from '../redux/actions/tickets';
+import { sortByPrice, sortByTime } from '../redux/actions/sort';
 import Ticket from './Ticket';
 
 const Tickets = () => {

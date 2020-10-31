@@ -15,7 +15,7 @@ export const setSortedTickets = (data) => ({
 	payload: data,
 });
 
-export const setSortBy = (type) => ({
+export const setSortBy = (tab) => ({
 	type: 'SET_SORT_BY',
-	payload: type,
+	payload: tab,
 });

@@ -1,13 +1,13 @@
 import React from 'react';
 
-const TicketRow = ({ eachTicketInfo, row }) => {
-	let seconds = eachTicketInfo.duration;
-	let origin = eachTicketInfo.origin;
-	let destination = eachTicketInfo.destination;
-	let date = eachTicketInfo.date;
+const TicketRow = ({ item, row }) => {
+	let seconds = item.duration;
+	let origin = item.origin;
+	let destination = item.destination;
+	let date = item.date;
 
-	let stopsCount = eachTicketInfo.stops.length;
-	let stops = eachTicketInfo.stops;
+	let stopsCount = item.stops.length;
+	let stops = item.stops;
 	let stopsArray = stops.join(', ');
 
 	const stopsCounter = (stopsCount) => {

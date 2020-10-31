@@ -5,7 +5,9 @@ export const gettingData = () => async (dispatch) => {
 
 	const fetchingData = async () => {
 		let response = await axios('https://front-test.beta.aviasales.ru/search').then((searchID) =>
-			axios.get(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchID.data.searchId}`)
+			axios
+				.get(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchID.data.searchId}`)
+				.catch((error) => console.log(error.response))
 		);
 		// .catch((error) => console.log('parsing failed', error));
 
