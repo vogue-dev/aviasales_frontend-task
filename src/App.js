@@ -10,10 +10,8 @@ import logo from './logo.svg';
 
 const App = () => {
 	const dispatch = useDispatch();
-	const dataTickets = useSelector(({ state }) => state.dataTickets);
-	const isLoaded = useSelector(({ state }) => state.isLoaded);
-	const filters = useSelector(({ state }) => state.filters);
-	const tabs = useSelector(({ state }) => state.tabs);
+	const state = useSelector(({ state }) => state);
+	let { filters, tabs } = state;
 
 	useEffect(() => {
 		dispatch(gettingData());
@@ -27,7 +25,7 @@ const App = () => {
 			<Filters filters={filters} />
 			<div className="main col-9">
 				<Tabs tabs={tabs} />
-				<TicketsContainer dataTickets={dataTickets} tabs={tabs} isLoaded={isLoaded} />
+				<TicketsContainer state={state} />
 			</div>
 		</div>
 	);

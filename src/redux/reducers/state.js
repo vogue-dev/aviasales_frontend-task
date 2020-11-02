@@ -1,6 +1,7 @@
 const initialState = {
 	dataTickets: [],
 	isLoaded: false,
+	isError: false,
 	filters: [
 		{ id: 1, text: 'Все', isChecked: true, value: -1 },
 		{ id: 2, text: 'Без пересадок', isChecked: true, value: 0 },

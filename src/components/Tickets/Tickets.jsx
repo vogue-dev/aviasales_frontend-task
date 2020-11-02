@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { getPrettyPrice, stopsCaseEndings, getTimeOnFly, getFlyingTime } from '../../utils/index';
+import { getFilteredTickets, getSortedTickets } from './helpers';
 
 const Tickets = ({ data, isLoaded }) => {
 	return (
@@ -41,18 +42,21 @@ const Tickets = ({ data, isLoaded }) => {
 	);
 };
 
-const TicketsContainer = ({ tabs, dataTickets, isLoaded }) => {
-	let sortedData = [];
+const TicketsContainer = ({ state }) => {
+	let { dataTickets, isLoaded, isError, filters, tabs } = state;
 
-	if (tabs[0].isActive) {
-		sortedData = dataTickets.sort((ticket_1, ticket_2) => ticket_1.price - ticket_2.price);
-	} else if (tabs[1].isActive) {
-		sortedData = dataTickets.sort(
-			(ticket_1, ticket_2) => ticket_1.segments[0].duration - ticket_2.segments[0].duration
-		);
-	}
+	const appliedFilters = filters.filter((e) => e.isChecked);
+	const filteredTickets = getFilteredTickets(appliedFilters, dataTickets || []);
 
-	return <Tickets data={sortedData} isLoaded={isLoaded} />;
+	const activeIndex = tabs.findIndex((e) => e.isActive === true);
+	console.log('activeIndex', activeIndex);
+	const sortedTickets = getSortedTickets(tabs[activeIndex].id, filteredTickets);
+
+	return isError ? (
+		<div className="ticket-error"> Technical Error, please reload page</div>
+	) : (
+		<Tickets data={sortedTickets} isLoaded={isLoaded} />
+	);
 };
 
 export default TicketsContainer;
