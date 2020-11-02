@@ -9,10 +9,9 @@ export const gettingData = () => async (dispatch) => {
 				.get(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchID.data.searchId}`)
 				.catch((error) => console.log(error.response))
 		);
-		// .catch((error) => console.log('parsing failed', error));
 
-		let result = await response.data.tickets.slice(0, 5);
-		dispatch(setTicketsData(result));
+		let slicedData = await response.data.tickets.slice(0, 5);
+		dispatch(setTicketsData(slicedData));
 	};
 	fetchingData();
 };

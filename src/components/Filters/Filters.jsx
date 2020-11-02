@@ -1,6 +1,8 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import StopsFilter from './StopsFilter';
+
+import { setFilter } from '../../redux/actions/filters';
 
 const StopsFilterHeading = styled.div`
 	 {
@@ -29,13 +31,31 @@ const StopsFilterHeading = styled.div`
 	}
 `;
 
-const Checkbox = () => {
+const Filters = ({ filters }) => {
+	const dispatch = useDispatch();
+
+	const onSelectFilter = (item) => {
+		dispatch(setFilter(item, filters));
+	};
+
 	return (
 		<div className="filter col-3">
 			<StopsFilterHeading>КОЛИЧЕСТВО ПЕРЕСАДОК</StopsFilterHeading>
-			<StopsFilter />
+			<div className="count row">
+				<ul>
+					{filters.map((item, i) => (
+						<label htmlFor="checkbox" onClick={() => onSelectFilter(item)} key={i}>
+							<li>
+								<input className="check" type="checkbox" id={i} checked={item.isChecked} />
+								<span className="checkmark"></span>
+								<div>{item.text}</div>
+							</li>
+						</label>
+					))}
+				</ul>
+			</div>
 		</div>
 	);
 };
 
-export default Checkbox;
+export default Filters;

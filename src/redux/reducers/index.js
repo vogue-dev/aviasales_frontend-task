@@ -1,13 +1,9 @@
 import { combineReducers } from 'redux';
 
-import tickets from './tickets';
-import sort from './sort';
-import filter from './filter';
+import state from './state';
 
 const rootReducer = combineReducers({
-	tickets,
-	sort,
-	filter,
+	state,
 });
 
 export default rootReducer;
