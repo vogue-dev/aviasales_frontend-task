@@ -49,7 +49,6 @@ const TicketsContainer = ({ state }) => {
 	const filteredTickets = getFilteredTickets(appliedFilters, dataTickets || []);
 
 	const activeIndex = tabs.findIndex((e) => e.isActive === true);
-	console.log('activeIndex', activeIndex);
 	const sortedTickets = getSortedTickets(tabs[activeIndex].id, filteredTickets);
 
 	return isError ? (
