@@ -51,22 +51,25 @@ function sortByPrice(a, b) {
 }
 
 // функция сортировки билетов по времени полета от меньшего к большему
-function sortByTime(a, b) {
-	let timeA = 0;
-	let timeB = 0;
 
-	a.segments.forEach((e) => {
-		timeA = timeA + e.duration;
-	});
+function sortByTime(tickets_1, ticket_2) {
+	// I вариант ( для сортировки по одному направлениям билета (ТУДА)
+	return tickets_1.segments[0].duration - ticket_2.segments[0].duration;
 
-	b.segments.forEach((e) => {
-		timeB = timeB + e.duration;
-	});
+	// II вариант ( для сортировки по двум направлениям билета (ТУДА - ОБРАТНО))
+	// 	let timeA = 0;
+	// 	let timeB = 0;
 
-	if (timeA > timeB) {
-		return 1;
-	}
-	return -1;
+	// 	a.segments.forEach((e) => {
+	// 		timeA = timeA + e.duration;
+	// 	});
+	// 	b.segments.forEach((e) => {
+	// 		timeB = timeB + e.duration;
+	// 	});
+	// 	if (a.segments.duration > b.segments.duration) {
+	// 		return 1;
+	// 	}
+	// 	return -1;
 }
 
 // добавляем приставку Р в конце цены, отделяем тысячные доли пробелом

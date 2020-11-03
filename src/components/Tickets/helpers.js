@@ -1,24 +1,8 @@
 import { sortByPrice, sortByTime } from '../../utils';
 
-// export const filterDataByTabs = (data, tabs) => {
-// 	let sortedData;
-
-// 	if (tabs[0].isActive) {
-// 		sortedData = data.sort((ticket_1, ticket_2) => ticket_1.price - ticket_2.price);
-// 		return sortedData;
-// 	} else if (tabs[1].isActive) {
-// 		sortedData = data.sort((ticket_1, ticket_2) => ticket_1.segments[0].duration - ticket_2.segments[0].duration);
-// 		return sortedData;
-// 	}
-// 	return sortedData;
-// };
-
-// export const filterDataByFilters = () => {
-// 	console.log('gagaggag');
-// };
-
 function getFilteredTickets(appliedFilters, tickets) {
 	const activeValues = appliedFilters.map((e) => e.value);
+	console.log('activeValues', activeValues);
 
 	if (activeValues.length > 0) {
 		const filteredTickets = tickets.filter((e) => {
@@ -27,6 +11,8 @@ function getFilteredTickets(appliedFilters, tickets) {
 				.sort((a, b) => {
 					if (a.length < b.length) {
 						return 1;
+					} else if (a.length < b.length) {
+						return 0;
 					}
 					return -1;
 				});
@@ -40,6 +26,7 @@ function getFilteredTickets(appliedFilters, tickets) {
 		});
 		return filteredTickets;
 	}
+
 	return tickets;
 }
 
