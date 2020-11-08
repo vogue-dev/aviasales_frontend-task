@@ -3,6 +3,8 @@ import React from 'react';
 import { getPrettyPrice, stopsCaseEndings, getTimeOnFly, getFlyingTime } from '../../utils/index';
 import { getFilteredTickets, getSortedTickets } from './helpers';
 
+import './tickets.scss';
+
 const Tickets = ({ data, isLoaded }) => {
 	return (
 		<>

@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { setFilter } from '../../redux/actions/filters';
 
+import './filters.scss';
+
 const StopsFilterHeading = styled.div`
 	 {
 		width: 100%;
